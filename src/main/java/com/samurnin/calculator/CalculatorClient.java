@@ -27,6 +27,8 @@ public class CalculatorClient extends WebServiceGatewaySupport {
         request.setIntA(intA);
         request.setIntB(intB);
 
+        log.info("Requesting subtract operation for " + intA + " and " + intB);
+
         return (SubtractResponse) getWebServiceTemplate().marshalSendAndReceive(
                 "http://www.dneonline.com/calculator.asmx",
                 request, new SoapActionCallback("http://tempuri.org/Subtract"));
@@ -37,6 +39,8 @@ public class CalculatorClient extends WebServiceGatewaySupport {
         request.setIntA(intA);
         request.setIntB(intB);
 
+        log.info("Requesting multiply operation for " + intA + " and " + intB);
+
         return (MultiplyResponse) getWebServiceTemplate().marshalSendAndReceive(
                 "http://www.dneonline.com/calculator.asmx",
                 request, new SoapActionCallback("http://tempuri.org/Multiply"));
@@ -46,6 +50,8 @@ public class CalculatorClient extends WebServiceGatewaySupport {
         Divide request = new Divide();
         request.setIntA(intA);
         request.setIntB(intB);
+
+        log.info("Requesting divide operation for " + intA + " and " + intB);
 
         return (DivideResponse) getWebServiceTemplate().marshalSendAndReceive(
                 "http://www.dneonline.com/calculator.asmx",

@@ -1,9 +1,11 @@
 package com.samurnin.calculator;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
-public class CalculatorClientConfiguration {
+@Configuration
+public class CalculatorConfiguration {
     @Bean
     public Jaxb2Marshaller marshaller() {
         final Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
@@ -12,8 +14,8 @@ public class CalculatorClientConfiguration {
     }
 
     @Bean
-    public CalculatorClient calculatorClient(Jaxb2Marshaller marshaller) {
-        final CalculatorClient client = new CalculatorClient();
+    public SquareCalculatorFacade calculator(Jaxb2Marshaller marshaller) {
+        final SquareCalculator client = new SquareCalculator();
         client.setDefaultUri("http://www.dneonline.com/calculator.asmx");
         client.setMarshaller(marshaller);
         client.setUnmarshaller(marshaller);

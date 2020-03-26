@@ -5,7 +5,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
 @Configuration
-public class CalculatorConfiguration {
+public class SquareCalculatorConfiguration {
+
     @Bean
     public Jaxb2Marshaller marshaller() {
         final Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
@@ -15,10 +16,10 @@ public class CalculatorConfiguration {
 
     @Bean
     public SquareCalculatorFacade calculator(Jaxb2Marshaller marshaller) {
-        final SquareCalculator client = new SquareCalculator();
-        client.setDefaultUri("http://www.dneonline.com/calculator.asmx");
-        client.setMarshaller(marshaller);
-        client.setUnmarshaller(marshaller);
-        return client;
+        final SquareCalculator calculator = new SquareCalculator();
+        calculator.setDefaultUri("http://www.dneonline.com/calculator.asmx");
+        calculator.setMarshaller(marshaller);
+        calculator.setUnmarshaller(marshaller);
+        return calculator;
     }
 }

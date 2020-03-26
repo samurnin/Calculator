@@ -20,6 +20,6 @@ public class SquareCalculatorConfiguration {
         calculator.setDefaultUri("http://www.dneonline.com/calculator.asmx");
         calculator.setMarshaller(marshaller);
         calculator.setUnmarshaller(marshaller);
-        return calculator;
+        return new CachedSquareCalculator(calculator);
     }
 }

@@ -14,6 +14,10 @@ public class CalculatorApplication {
 
     @Bean
     CommandLineRunner lookup(SquareCalculatorFacade calculator) {
-        return args -> System.out.println(calculator.square(5));
+        return args -> {
+            System.out.println(calculator.square(5));
+            System.out.println(calculator.square(5));
+            System.out.println(calculator.square(7));
+        };
     }
 }
